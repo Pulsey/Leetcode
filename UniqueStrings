@@ -1,0 +1,28 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class uniquestring {
+    public static void main(String[] args) {
+        
+        Scanner x=new Scanner(System.in);
+        int t=x.nextInt();
+        
+        for (int i=0;i<t;i++)
+        {
+            String s=x.next();
+            String s1= "";
+            while(s.length()>0)
+                {
+                
+                s1=s1+s.charAt(0);
+                  //  System.out.println("ans " +s);
+                s=s.replaceAll(Character.toString(s.charAt(0)), "");
+                
+                }
+            System.out.println(s1);
+        }
+    }
+}
