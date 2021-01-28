@@ -1,0 +1,32 @@
+import java.util.Collections;
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class pikachi {
+    public static void main(String[] args) {
+        Scanner x=new Scanner(System.in);
+        int tc=x.nextInt();
+        while(tc-->0)
+        {
+        int n=x.nextInt();
+        int[] a = new int[n];
+        for(int i=0;i<n;i++)
+        {
+        a[i]=x.nextInt();        
+        }
+            java.util.Arrays.sort(a); 
+        for(int i=0;i<n;i++)
+        {
+        System.out.print(a[i]+" ");
+        
+        }  
+        System.out.println();
+        
+        
+        
+        }
+    }
+}
