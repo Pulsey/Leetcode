@@ -1,0 +1,24 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class factorial {
+    public static long fact(int x)
+        {
+        long fact=1;
+        while(x>1)
+        {
+        fact= fact*x;
+         //   System.out.println("val"+fact);
+        x--;
+        }return fact;
+        }
+    public static void main(String[] args) {
+        Scanner x= new Scanner(System.in);
+        int f=x.nextInt();
+        System.out.println(fact(f));
+    
+}
+}
