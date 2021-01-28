@@ -1,0 +1,38 @@
+import java.util.Scanner;
+ 
+public class experiment {
+       public static void main(String[] args) {
+           
+           Scanner s=new Scanner(System.in);
+           long x=s.nextLong();
+           
+           long lcm=lcm(x,1);
+            long i;
+            long temp=1;
+            for(i=x;i>1;i--)
+            {
+            temp=temp*i;
+               // System.out.println(temp);
+            if(temp%lcm==0)
+            {
+                System.out.println(i);
+                break;
+            }
+            }
+                
+           }
+   
+ 
+private static long lcm(long n,long m) {
+   long result = 1;
+   long prev;
+   for (long i=m; i<=n; i++) {
+       prev = result;
+       while (result%i > 0) {
+           result =result+prev;
+       }
+   }
+   return (result);
+}
+ 
+}
