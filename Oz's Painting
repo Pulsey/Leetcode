@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+ 
+class TestClass{
+    
+   static long paint(long c)
+{
+    long rem=c%3;
+    c=c-rem;
+    c=c/3;   
+return c;
+}
+    
+    
+    public static void main(String args[] ) throws Exception {
+        
+        // * Read input from stdin and provide input before running
+ 
+        try 
+        {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a= Integer.parseInt(br.readLine());
+        if(a>10 || a<0)
+        {
+        	System.exit(0);
+        }           
+        else
+        {
+        for (int n=0; n<a; n++)
+   {
+      String str=br.readLine();     //Reading 2nd line str="1 2 3 4 5"
+      long array[]=new long[3];    //Declaring array of 10 elements or more
+      int i=0;
+      for(String temp:str.split(" "))     //Spilting strings at space character b/w
+      array[i++]=Integer.parseInt(temp); 
+        long small;
+        java.util.Arrays.sort(array);
+        small=array[0];
+        long count=small;
+        array[0]=array[0]-small;
+        array[1]=array[1]-small;
+        array[2]=array[2]-small;
+        
+        if(array[1]%3==2&& array[2]%3==2 && small!=0)
+        count++;
+        
+        count= count + paint(array[0])+paint(array[1])+paint(array[2]);
+        
+        System.out.println(count);             
+    }
+   }
+        }
+    
+    catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    
+    
+    }
+    
+    
+}
