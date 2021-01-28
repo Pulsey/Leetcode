@@ -1,0 +1,68 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+ 
+/**
+ *
+ * @author hp
+ */
+class experiment {
+    public static void main(String[] args) throws Exception {
+        BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        int t=Integer.parseInt(br.readLine());
+        int i;
+        String[] str;
+        int[] val;
+        int[] pro;
+        for(i=0;i<t;i++)
+        {
+            int z;
+            int temp=0;
+        int j=Integer.parseInt((br.readLine()).trim());
+        str=new String[j];
+        val=new int[j];
+        pro=new int[j-1];
+        int k=0;
+        
+           StringTokenizer st=new StringTokenizer(br.readLine());
+           while(st.hasMoreTokens())
+           
+           str[k++]=st.nextToken();
+           
+           k=0;
+           st=new StringTokenizer(br.readLine());
+           while(st.hasMoreTokens())
+           
+           val[k++]=Integer.parseInt(st.nextToken());
+           
+           k=0;
+           st=new StringTokenizer(br.readLine());
+           while(st.hasMoreTokens())
+           
+           pro[k++]=Integer.parseInt(st.nextToken());
+           
+           for(z=0;z<k;z++)
+           { 
+               int c=k;
+           if (temp<val[pro[z]-1])
+           
+           temp=val[pro[z]-1];
+           
+               System.out.println(str[pro[z]-1]+" "+temp);
+               for(int x=pro[z]-1;x<c;x++)
+               {
+               str[x]=str[x+1];
+               val[x]=val[x+1];
+               }
+               c--;
+           }
+           if (temp<val[0])
+           {temp=val[0];
+           System.out.println(str[0]+" "+temp); 
+           }
+           else
+               System.out.println(str[0]+" "+temp);
+           
+        }
+    }
+}
