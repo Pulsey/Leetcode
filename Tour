@@ -1,0 +1,44 @@
+import java.util.Scanner;
+import java.util.Arrays;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class twodcities {
+    
+    public static void main(String[] args) {
+        
+        Scanner x=new Scanner(System.in);
+        int n=x.nextInt();
+        String city[]=new String[n];
+        for(int i=0;i<n;i++)
+          {
+            city[i]=x.next();
+            }
+        int cost[][]=new int[n][n];
+        
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                cost[i][j]=x.nextInt();
+              //  System.out.print(cost[i][j]+" ");
+            } //  System.out.println("");       //String(list).indexOf("e")
+        }
+        int t=x.nextInt();
+        String cc[]=new String[t];
+                  for(int i=0;i<t;i++)
+                     {
+                        cc[i]=x.next();
+                         }
+            long sum=0;
+            sum=sum+cost[0][Arrays.asList(city).indexOf(cc[0])];
+            
+            for(int i=0;i<t-1;i++)
+            sum=sum+ cost[Arrays.asList(city).indexOf(cc[i])][Arrays.asList(city).indexOf(cc[i+1])];  
+             
+        System.out.println(sum);
+    }
+}
+Language: Java
