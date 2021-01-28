@@ -1,0 +1,25 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class factnm {
+    public static long facti(int x,int m)
+        {
+        long fact=1;
+        while(x>1)
+        {
+        fact= (fact*x)%m;
+         //   System.out.println("val"+fact);
+        x--;
+        }return fact;
+        }
+    public static void main(String[] args) {
+        Scanner x= new Scanner(System.in);
+        int f=x.nextInt();
+        int m=x.nextInt();
+        System.out.println(facti(f,m));
+    
+}
+}
