@@ -1,0 +1,34 @@
+import java.util.Scanner;
+/**
+ *
+ * @author Gagan_000
+ */
+public class palindromStrin {
+    
+   public static boolean palindrom(String s) {
+  int n = s.length();
+  for (int i=0;i<(n / 2);++i) {
+     if (s.charAt(i) != s.charAt(n - i - 1)) {
+         return false;}}
+  return true;}
+    
+    
+    public static void main(String[] args) {
+        Scanner x=new Scanner(System.in);
+        int t=x.nextInt();
+        while(t>0)
+        {
+        t--;
+        String s1=x.next();
+        String s2=x.next();
+                   
+        if(palindrom(s2+s1)||palindrom(s1+s2))
+        {
+            System.out.println("YES");
+        }
+        else
+                System.out.println("NO");  
+        }
+    }
+    
+}
