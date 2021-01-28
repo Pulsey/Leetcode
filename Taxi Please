@@ -1,0 +1,39 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class taxiproblm {
+    public static void main(String[] args) {
+        Scanner x=new Scanner(System.in);
+        int n=x.nextInt();
+        int m=x.nextInt();
+        int cab[]=new int[m];
+       
+        
+       // int time;
+        while(n-->0)
+        {
+            int arrival=x.nextInt();
+            int travel=x.nextInt();
+           // time=arrival;
+            int flag=0;
+            loop:
+            for(int i=0;i<m;i++)
+                
+            {
+            if(cab[i]<=arrival )
+            {
+                cab[i]=travel+arrival;
+                System.out.print(i+1+" ");
+                flag=1;
+                break loop;
+                
+            }
+            
+            }
+            if(flag==0)
+                System.out.print("-1 ");
+ 
+        }}}
