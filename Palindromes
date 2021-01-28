@@ -1,0 +1,41 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class largepalin {
+   
+  public static boolean palindrom(String s) {
+  int n = s.length();
+  for (int i=0;i<(n / 2);++i) {
+     if (s.charAt(i) != s.charAt(n - i - 1)) {
+         return false;}}
+  return true;}
+    
+    public static void main(String[] args) {
+        
+        Scanner x=new Scanner(System.in);
+        String s=x.next();
+        String tem=s;
+        int temp=s.length();
+       // System.out.println("lengh" + s.length());
+        if(!tem.replaceAll(Character.toString(s.charAt(0)),"").equals(""))
+        {
+        for(int i=0;i<temp;i++)
+            {
+            if( !palindrom(s.substring(0, temp-i)) || !palindrom(s.substring(i,temp)))
+                {
+                   System.out.println(s.length()-i);
+               //     System.out.println(i);
+                 //   System.out.println(palindrom(s.substring(0, temp-i)) + " & "+palindrom(s.substring(i,temp)));
+                    System.exit(0);
+                }
+            
+                   // 
+            }
+        }
+        System.out.println(0);
+    }
+}
+Language: Java
