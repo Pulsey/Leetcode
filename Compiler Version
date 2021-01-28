@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+/**
+ *
+ * @author Gagan_000
+ */
+public class Compilernew {
+    public static void main(String[] args) throws Exception{
+        
+        
+         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+         String s;
+        
+        while ((s = br.readLine()) != null)
+        {
+            if(s.indexOf("//")!=-1)
+            {
+           // System.out.println(s);
+            int temp=s.indexOf("//");
+            //System.out.println("ans"+temp);
+            String t1=s.substring(0,temp);
+            String t2=s.substring(temp,s.length());
+            t1=t1.replaceAll("->",".");
+           // s="";
+            s=t1+t2;
+            }
+            else
+            {
+            s=s.replaceAll("->", ".");
+            }
+            System.out.println(s);
+        }
+    }
+            
+}
