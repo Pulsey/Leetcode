@@ -1,0 +1,34 @@
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class cars {
+    public static void main(String[] args)throws Exception{
+        
+        Scanner x= new Scanner(System.in);
+        int tc=x.nextInt();
+        for(int i=1;i<=tc;i++)
+        {
+            int count=1;
+        int n=x.nextInt();
+        int arr[]=new int[n];
+       
+        for(int a=0;a<n;a++)
+           {
+            arr[a]=x.nextInt();
+               //System.out.println("arr "+a+" "+arr[a]);
+             }
+        for(int a=0;a<n-1;a++)
+            {
+                if(arr[a+1]>arr[a])
+                {
+                arr[a+1]=arr[a];
+                }
+                else
+                {count++;}   
+            }
+            System.out.println(+count);
+        }}}
+Language: Java
