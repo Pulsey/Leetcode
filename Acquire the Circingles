@@ -1,0 +1,163 @@
+#include <iostream>
+using namespace std;
+ 
+ 
+int main()
+ 
+{
+ 
+  int t;
+ 
+ cin>>t;
+ int a[3],b[3];
+  for(int i=1;i<=t;i++)
+ 
+	 {
+		int fin=0;
+  	  cin>>a[0];
+ 
+	    cin>>a[1];
+ 
+	    cin>>a[2];
+	     long k;
+ 
+	     cin>>k;
+	     
+	     if(k==1)
+	     {
+	     	fin=a[0]+a[1]+a[2];
+	     	cout<<fin;
+	     }
+	     else
+	     {
+	     
+	      int x=(k*(k+1))/2;
+ 
+	     
+ 
+	     while(true)
+ 
+	    {
+     if(a[0]>=a[1]&& a[0]>=a[2])
+ 
+	     {
+	     b[0]=a[0];
+ 
+	     if(a[1]>=a[2])
+ 
+	      {
+		b[1]=a[1];
+ 
+		b[2]=a[2];
+ 
+ 
+		}
+		else
+ 
+		{
+ 
+		b[2]=a[1];
+ 
+		b[1]=a[2];
+ 
+		}
+		}
+		else
+ 
+		{
+ 
+		    if(a[1]>=a[2])
+ 
+		    {b[0]=a[1];
+ 
+			if(a[0]>=a[2])
+ 
+		      {
+ 
+			    b[1]=a[0];
+ 
+			   b[2]=a[2];
+ 
+ 
+			}
+ 
+		       else
+ 
+			{
+ 
+			   b[2]=a[0];
+ 
+			   b[1]=a[2];
+ 
+			}
+ 
+		    }
+ 
+		    else
+ 
+		    {
+ 
+			b[0]=a[2];
+ 
+			if(a[0]>=a[1])
+ 
+		      {
+ 
+			   b[1]=a[0];
+ 
+			    b[2]=a[1];
+ 
+ 
+			}
+ 
+		       else
+ 
+			{
+ 
+			    b[2]=a[0];
+ 
+			   b[1]=a[1];
+ 
+ 
+			}
+ 
+		    }
+ 
+		}
+	    a[0]=b[0];
+	    a[1]=b[1];
+	    a[2]=b[2];
+ 
+		for(int p=0;p<x;p++)
+ 
+	     {
+ 
+	      if(p%3==0)
+ 
+		 a[0]--;
+ 
+	      if(p%3==1)
+ 
+		 a[1]--;
+ 
+	     if(p%3==2)
+ 
+		  a[2]--;
+ 
+	      }
+ 
+	     if(!(a[0]<0||a[1]<0||a[2]<0))
+		  {fin++;
+		  }else
+		  break;
+		  
+			}
+ 
+  cout<<fin;
+  cout<<"\n";
+	 }
+	 }
+return 0;
+}
+ 
+Language: C++
