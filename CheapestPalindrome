@@ -1,0 +1,46 @@
+  import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class slashpalindrome {
+    public static void main(String[] args) {
+           Scanner x=new Scanner(System.in);
+              int tc=x.nextInt();
+              while(tc-->0)
+            {
+            String s=x.next();
+            int len=s.length();
+            int costa=x.nextInt();
+            int costb=x.nextInt();
+            int small=costb;
+            long total=0;
+            
+            if(costa<costb)
+                small=costa;
+            outer:           
+            for(int i=0;i<s.length()/2;i++)
+                    {
+                       String tem=Character.toString(s.charAt(i))+Character.toString(s.charAt(len-i-1));
+                       switch (tem)
+                               {
+                           case "aa":{break;}
+                           case "bb":{break;}
+                           case "/a" :
+                           case "a/" :{total=total + costa; break;}
+                           case "/b" :
+                           case "b/" :{total=total + costb; break;}
+                           case "//":
+                           {total=total + (2*small); break;}
+                           case "ab":
+                           case "ba":
+                           {
+                               total=-1;
+                                break outer;
+                           }
+                    
+                    }     
+            }
+             System.out.println(total);
+    }}}
