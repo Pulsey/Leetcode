@@ -1,0 +1,62 @@
+ 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+ 
+/**
+ *
+ * @author Gagan
+ */
+public class robogame {
+    
+    
+    public static void main(String[] args) throws Exception {
+        
+       int MOD=1000000007;
+        try{
+           BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int a= Integer.parseInt(br.readLine());
+        if(a>10|| a<1)
+        {
+        System.exit(0);
+        }
+        for(int aa=1;aa<=a;aa++)
+        {
+            int b= Integer.parseInt(br.readLine());
+            if( b<0|| b>1000)
+            {System.exit(0);}
+            String str=br.readLine(); 
+            long vals[]=new long[b]; 
+            int i=0,p=0;
+            for(String temp:str.split(" "))    
+                  {    if(Integer.parseInt(temp)>0)  
+                  {
+                      vals[i++]= Integer.parseInt(temp);
+                     }         
+            }
+                    java.util.Arrays.sort(vals);
+                    if(vals[b-1]<b)   
+                    {
+                        System.out.println(0);
+                    System.exit(0);
+                    }
+                for(p=0;p<b;p++)
+                { 
+                    vals[p]=vals[p]-p;
+                }
+               long ans=1;
+               for(int x=0;x<b;x++)
+               {
+               ans=(ans*vals[x])%MOD;
+               }
+               System.out.println(ans);
+                }
+        
+        }
+       
+      catch(Exception e)
+    {
+        System.out.println(e);
+    }
+        }
+    }
+ 
