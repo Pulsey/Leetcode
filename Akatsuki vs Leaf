@@ -1,0 +1,87 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class leafproblm {
+    static class mat{
+        
+        int x,y;
+        public mat(int a,int b)
+        {this.x=a;
+           this.y=b;
+        }
+        
+        public int getx()
+        { return x;}
+        public int gety()
+        { return y;}
+    }
+    public static void main(String[] args) {
+        
+        Scanner x=new Scanner(System.in);
+        int tc=x.nextInt();
+        {
+            List<mat> list1=new ArrayList<>();
+            List<mat> list2=new ArrayList<>();
+        for(int i=0;i<tc;i++)
+        {
+            int temp1,temp2;
+            temp1=x.nextInt();
+            temp2=x.nextInt();
+            list1.add(new mat(temp1,temp2));
+        }
+        for(int i=0;i<tc;i++)
+        {
+            int temp1,temp2;
+            temp1=x.nextInt();
+            temp2=x.nextInt();
+            list2.add(new mat(temp1,temp2));
+        }
+        
+               class cmp implements Comparator<mat>{
+ 
+    @Override
+    public int compare(mat e1, mat e2) {
+        
+        if(e1.getx()> e2.getx() )
+             return 1;
+        else
+        {
+        if(e1.getx()==e2.gety()&&e1.gety()>e2.gety())
+            return 1;
+        else
+            return -1; 
+          
+             
+        }
+             }
+        
+            
+            }
+      Collections.sort(list1,new cmp());
+      Collections.sort(list2,new cmp());
+    
+      
+       long sum=0;
+        for(int i=0;i<list1.size();i++)
+        {
+            int temp1= Math.abs(list1.get(i).getx()-list2.get(i).getx()) + Math.abs(list1.get(i).gety()-list2.get(i).gety()) ; 
+            sum+=temp1;
+        }
+        
+        
+            System.out.println(sum);
+        
+        }
+    }
+}
