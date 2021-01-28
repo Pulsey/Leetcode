@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.Arrays;
+ 
+ 
+/**
+ *
+ * @author Gagan_000
+ */
+public class modkm {
+    public static void main(String[] args) {
+        Scanner  x=new Scanner(System.in);
+        int tc=x.nextInt();
+        int m[]=new int[tc];
+        int i;
+        int temp=(m.length);
+        while(tc-->0)
+        m[tc]=x.nextInt();
+        
+        Arrays.sort(m);
+        i=2;
+       // System.out.println(i);
+        int flg=0;
+        while(i<=m[temp-1])
+        {flg=0;
+        
+        
+        for(int j=temp-2;j>=temp/2;j--)
+        {
+           // System.out.println("for lop"+j);
+        if( !(m[j]%i==m[j+1]%i && m[temp-j-1]%i==m[temp-j-2]%i))
+        {
+          flg=1;
+          break;
+        }   
+        }
+        if(flg==0)
+        {
+            System.out.print(i+" ");
+        }
+        i++;
+           // System.out.println("i");
+        }
+        
+        
+    }
+}
