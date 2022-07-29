@@ -1,0 +1,69 @@
+import java.util.*;
+
+class Program {
+
+  static AncestralTree searchClosest(AncestralTree one, AncestralTree two){
+    while(!one.equals(two)){
+      one=one.ancestor;
+      two=two.ancestor;
+    }
+    return one;
+  }
+  
+  public static AncestralTree getYoungestCommonAncestor(
+      AncestralTree topAncestor, AncestralTree descendantOne, AncestralTree descendantTwo) {
+    // Write your code here.
+    //finding depth of each descendants
+ 
+    int depthDO=0;
+    AncestralTree tempancestor2=descendantOne;
+    while(tempancestor2.name!=topAncestor.name){
+      depthDO++;
+      tempancestor2=tempancestor2.ancestor;
+    }    
+
+    int depthDT=0;
+    AncestralTree tempancestor1=descendantTwo;
+    while(tempancestor1.name!=topAncestor.name){
+      depthDT++;
+      tempancestor1=tempancestor1.ancestor;
+    }
+    if(depthDO!=depthDT){
+      
+      if(depthDO>depthDT){
+        AncestralTree depOneEqual=descendantOne;;
+        int tempdiff=depthDO-depthDT;
+        for (int i=0;i<tempdiff;i++){
+          depOneEqual=depOneEqual.ancestor;
+        }
+        return searchClosest(depOneEqual,descendantTwo);
+      }else{
+            AncestralTree depTwoEqual=descendantTwo;
+            int tempdiff=depthDT-depthDO;
+            for(int i=0;i<tempdiff;i++){
+            depTwoEqual=depTwoEqual.ancestor;
+        }
+        return searchClosest(descendantOne,depTwoEqual);
+      }
+    }else{
+      return searchClosest(descendantOne,descendantTwo);
+    }
+  }
+  
+  static class AncestralTree {
+    public char name;
+    public AncestralTree ancestor;
+
+    AncestralTree(char name) {
+      this.name = name;
+      this.ancestor = null;
+    }
+
+    // This method is for testing only.
+    void addAsAncestor(AncestralTree[] descendants) {
+      for (AncestralTree descendant : descendants) {
+        descendant.ancestor = this;
+      }
+    }
+  }
+}
