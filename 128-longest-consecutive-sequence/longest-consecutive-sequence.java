@@ -5,17 +5,18 @@ class Solution {
             set.add(num);
         }
         int max = 0;
-        int count=0;
 
         for( int num : nums){
             if(!set.contains(num-1)){
-                while(set.contains(num++)){
-                    set.remove(num-1);
+                int count=0;
+                int val = num;
+                while(set.contains(val)){
+                    set.remove(val);
+                    val++;
                     count++;
                 }
+            max = Math.max(max, count);
             }
-        max = Math.max(max, count);
-        count  = 0;
         }
         return max;
     }
