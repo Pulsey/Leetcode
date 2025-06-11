@@ -1,36 +1,21 @@
-public class Solution {
+class Solution {
     public int largestRectangleArea(int[] heights) {
-        int n = heights.length;
-        int[] leftMost = new int[n];
-        int[] rightMost = new int[n];
-        Stack<Integer> stack = new Stack<>();
-        
-        for (int i = 0; i < n; i++) {
-            leftMost[i] = -1;
-            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
-                stack.pop();
-            }
-            if (!stack.isEmpty()) {
-                leftMost[i] = stack.peek();
+        Stack<Integer> stack = new Stack<Integer>();
+        int len = heights.length;
+        int maxArea  =0 ;
+        int currentHeight = 0;
+
+        for(int i = 0; i <= len; i++){
+            if( i == len)
+            currentHeight = 0;
+            else
+            currentHeight = heights[i];            
+            while(!stack.isEmpty() && currentHeight < heights[stack.peek()] ){
+                int height = heights[stack.pop()];
+                int width = stack.isEmpty() ? i : i - stack.peek() - 1;
+                maxArea = Math.max(maxArea, height * width);
             }
             stack.push(i);
-        }
-
-        stack.clear();
-        for (int i = n - 1; i >= 0; i--) {
-            rightMost[i] = n;
-            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
-                stack.pop();
-            }
-            if (!stack.isEmpty()) {
-                rightMost[i] = stack.peek();
-            }
-            stack.push(i);
-        }
-
-        int maxArea = 0;
-        for (int i = 0; i < n; i++) {
-            maxArea = Math.max(maxArea, heights[i] * (rightMost[i] - leftMost[i] - 1));
         }
         return maxArea;
     }
