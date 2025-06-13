@@ -25,7 +25,7 @@ class Solution {
 }
 
     public List<String> findWords(char[][] board, String[] words) {
-        Set<String> res = new HashSet<>();
+        List<String> res = new ArrayList<>();
         TrieNode node = buildTrie(words);
 
         for(int r = 0; r < board.length; r++ ){
@@ -33,19 +33,18 @@ class Solution {
                 dfs(board, r, c, node, res);
             }
         }
-        return new ArrayList(res);
+        return (res);
     }
 
-    public void dfs(char[][] board, int r, int c, TrieNode node, Set<String> res){
-        if( r < 0 || c < 0 || r >= board.length || c >= board[0].length) return;
-        char ch = board[r][c];
-        if( ch == '#' || node.children[ch - 'a'] == null ){
-            return;
-        }
+    public void dfs(char[][] board, int r, int c, TrieNode node, List<String> res){
+        if( r < 0 || c < 0 || r >= board.length || c >= board[0].length || board[r][c]== '#' || node.children[board[r][c] - 'a'] == null) return;
+     
         node  = node.children[board[r][c] - 'a'];
         if( node.word != null){
             res.add(node.word);
+            node.word = null; 
         }
+        char ch = board[r][c];
         board[r][c] = '#';
         dfs(board, r+1, c, node, res);
         dfs(board, r, c+1, node, res);
